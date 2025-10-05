@@ -91,7 +91,7 @@ npm run dev
 ### Response:
 ```bash
 {
-  "shortUrl": "https://skurl.click/example"
+  "shortUrl": "https://<your-domain>/example"
 }
 ```
 
