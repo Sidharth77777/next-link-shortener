@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import { useFormStates } from "../context/WebContext";
 import { toast } from "sonner";
-import Link from "next/link";
 
 const formVariant = {
   hidden: { opacity: 0, y: 10 },
@@ -215,11 +214,11 @@ export default function ShortenForm() {
                   )}
                 </motion.button>
 
-                <Link
+                <motion.a
                   whileHover={{ scale: 1.08 }}
                   whileTap={{ scale: 0.95 }}
                   title="Open in new tab"
-                  href={`/${preferredUrl}`}
+                  href={shortUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl
@@ -229,7 +228,7 @@ export default function ShortenForm() {
                              focus:outline-none focus:ring-2 focus:ring-blue-500/40 transition-all"
                 >
                   <ArrowUpRight width={18} />
-                </Link>
+                </motion.a>
               </div>
             </div>
 
