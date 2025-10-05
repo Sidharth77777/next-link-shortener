@@ -12,7 +12,7 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <Link
-            href="https://github.com/Sidharth77777/next-link-shortener"
+            href="https://github.com/Sidharth77777/next-link-shortener/blob/main/README.md"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:scale-110 transition-all duration-200 text-gray-600 dark:text-gray-300 hover:text-sky-500 dark:hover:text-white"
