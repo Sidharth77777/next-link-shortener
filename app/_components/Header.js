@@ -1,4 +1,5 @@
 import { twitterSvg, githubSvg } from "../icons/icons"
+import Link from "next/link"
 
 export default function Header() {
   return (
@@ -10,22 +11,22 @@ export default function Header() {
         </h2>
 
         <div className="flex items-center gap-4">
-          <a
-            href="https://github.com/Sidharth77777"
+          <Link
+            href="https://github.com/Sidharth77777/next-link-shortener"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:scale-110 transition-all duration-200 text-gray-600 dark:text-gray-300 hover:text-sky-500 dark:hover:text-white"
           >
             {githubSvg}
-          </a>
-          <a
+          </Link>
+          <Link
             href="https://x.com/cryptoSid1564"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:scale-110 transition-all duration-200 text-gray-600 dark:text-gray-300 hover:text-sky-500 dark:hover:text-sky-400"
           >
             {twitterSvg}
-          </a>
+          </Link>
         </div>
       </div>
     </header>
