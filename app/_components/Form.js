@@ -41,7 +41,6 @@ export default function ShortenForm() {
   const [copyStatus, setCopyStatus] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // reset copy status when shortUrl changes
   useEffect(() => {
     setCopyStatus(false);
   }, [shortUrl]);
@@ -103,13 +102,14 @@ export default function ShortenForm() {
   };
 
   return (
-    <div className="px-4">
+    <div className="w-full">
+      <div className="w-full">
       <motion.form
         onSubmit={handleForm}
         initial="hidden"
         animate="visible"
         variants={formVariant}
-        className="flex flex-col gap-4 w-full max-w-lg mx-auto mt-8 p-6 bg-white/60 dark:bg-gray-900/60 backdrop-blur rounded-2xl shadow-lg"
+        className="flex flex-col gap-4 sm:w-4/5 w-full p-6 mx-auto bg-white/60 dark:bg-gray-900/60 backdrop-blur rounded-none sm:rounded-2xl shadow-lg"
       >
         <motion.div variants={childVariant}>
           <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -120,7 +120,7 @@ export default function ShortenForm() {
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               placeholder="Enter your long URL"
-              className="p-3 border rounded-md dark:bg-gray-900 dark:text-white w-full"
+              className="p-3 border rounded-md dark:bg-gray-900 dark:text-white w-full placeholder:opacity-80 sm:placeholder:text-sm placeholder:text-[15px]" 
               aria-label="Long URL"
             />
           </motion.div>
@@ -135,7 +135,7 @@ export default function ShortenForm() {
               value={preferredUrl}
               onChange={(e) => setPreferredUrl(e.target.value)}
               placeholder="Enter your Preferred short name"
-              className="p-3 border rounded-md dark:bg-gray-900 dark:text-white w-full"
+              className="p-3 border rounded-md dark:bg-gray-900 dark:text-white w-full placeholder:opacity-80 sm:placeholder:text-sm placeholder:text-[15px]"
               aria-label="Preferred short name"
             />
           </motion.div>
@@ -147,7 +147,7 @@ export default function ShortenForm() {
             whileTap={btnTap}
             whileHover={{ scale: 1.02 }}
             disabled={loading}
-            className={`w-full cursor-pointer flex items-center justify-center gap-3 px-4 py-3 rounded-lg ${
+            className={`w-full cursor-pointer flex items-center justify-center sm:text-lg text-[14px] gap-3 px-4 py-3 rounded-lg ${
               loading ? "bg-blue-400 cursor-wait" : "bg-blue-600 hover:bg-blue-700"
             } text-white font-semibold shadow-md`}
             aria-label="Generate Short URL"
@@ -157,7 +157,7 @@ export default function ShortenForm() {
             ) : (
               <>
                 <motion.span whileHover={iconHover} className="inline-flex">
-                  <WandSparkles />
+                  <WandSparkles width={20} />
                 </motion.span>
                 Generate Short URL
               </>
@@ -165,6 +165,7 @@ export default function ShortenForm() {
           </motion.button>
         </motion.div>
       </motion.form>
+      </div>
 
       <AnimatePresence>
         {shortUrl && (
@@ -173,7 +174,7 @@ export default function ShortenForm() {
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 6 }}
-            className="w-full max-w-lg mx-auto mt-6 px-4"
+            className="w-full max-w-lg mt-5 mx-auto"
           >
             <div
               className="flex flex-wrap items-center justify-between gap-3
@@ -188,7 +189,7 @@ export default function ShortenForm() {
                 <div className="flex items-center gap-3">
                   <motion.code
                     whileHover={{ scale: 1.02 }}
-                    className="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800 underline text-blue-500 max-w-full truncate"
+                    className="px-2 py-1 rounded bg-gray-100 sm:text-md text-[15px] dark:bg-gray-800 underline text-blue-500 max-w-full truncate"
                     title={typeof shortUrl === "string" ? shortUrl : JSON.stringify(shortUrl)}
                   >
                     {typeof shortUrl === "string" ? shortUrl : shortUrl?.shortUrl || ""}
