@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🔗 Skurl — Next.js Link Shortener
 
-## Getting Started
+A modern **link shortener** built using **Next.js 15**, **Drizzle ORM**, and **Neon Postgres** — deployed on **Vercel**.  
+Easily shorten, copy, and share clean URLs using your own custom domain — [skurl.click](https://skurl.click) 🚀
 
-First, run the development server:
+---
 
+## 🧠 Features
+
+- ⚡ **Instant Link Shortening** — Paste a long URL, choose a preferred short name, and generate instantly  
+- 🪄 **Custom Short Names** — Create meaningful short URLs like `skurl.click/project`  
+- 🧩 **Built with Drizzle ORM** — Type-safe schema and migration management  
+- 🌐 **Hosted on Neon (Postgres)** — Fast, serverless database for link storage  
+- 🧱 **Deployed via Vercel** — Automatic HTTPS, custom domain, and edge performance  
+- 🌗 **Dark Mode UI** — TailwindCSS + Framer Motion for smooth animations  
+- 📋 **Copy to Clipboard** — Copy and share generated short links with one click  
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|--------|-------------|
+| **Frontend** | [Next.js 15](https://nextjs.org/) (App Router) |
+| **Styling** | [TailwindCSS](https://tailwindcss.com/), [Framer Motion](https://www.framer.com/motion/) |
+| **Backend** | Next.js API Routes |
+| **Database** | [Neon PostgreSQL](https://neon.tech/) |
+| **ORM** | [Drizzle ORM](https://orm.drizzle.team/) |
+| **Hosting** | [Vercel](https://vercel.com/) |
+| **Icons** | [Lucide React](https://lucide.dev/) |
+| **Notifications** | [Sonner](https://sonner.emilkowal.ski/) |
+
+---
+
+---
+
+## 📸 Preview
+
+![Dashboard](https://drive.usercontent.google.com/download?id=1n9H4zqPP0q7M7qE9FNQ7HrqhcnjIrLvY&export=view&authuser=0)  
+*Enter the link your want to shorten and as you prefer*
+
+---
+
+---
+
+## ⚙️ Setup Guide
+
+### 1️⃣ Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Sidharth77777/next-link-shortener.git
+cd next-link-shortener
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2️⃣ Install Dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 3️⃣ Setup Environment Variables
+```bash
+DATABASE_URL=<your_neon_postgres_url>
+NEXT_PUBLIC_HOST_URL=<your_domain>
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4️⃣ Generate & Push Drizzle Schema
+```bash
+npx drizzle-kit generate
+npx drizzle-kit push
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+### 5️⃣ Run the Dev Server
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧾 API Reference
 
-## Deploy on Vercel
+### Body (JSON):
+```bash
+{
+  "url": "https://example.com/very/long/link",
+  "preferredUrl": "example"
+}
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Response:
+```bash
+{
+  "shortUrl": "https://skurl.click/example"
+}
+```
+
+### Error Codes:
+- **400** → Missing URL
+- **409** → Preferred short name already in use
+- **500** → Internal server error
+---
+
+
+---
+
+## 👨‍💻 Author
+ Sidharth K S
+ 
+ Github: [https://github.com/Sidharth77777](https://github.com/Sidharth77777)
+ 
+ X: [https://x.com/cryptoSid1564](https://x.com/cryptoSid1564)
+
+---
