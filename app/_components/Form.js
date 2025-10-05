@@ -91,8 +91,7 @@ export default function ShortenForm() {
 
       setShortUrl(data.shortUrl);
       toast.success("Successfully generated URL ✅");
-      setUrl("");
-      setPreferredUrl("");
+      
     } catch (err) {
       console.error(err);
       toast.error("Error shortening URL");
@@ -218,7 +217,7 @@ export default function ShortenForm() {
                   whileHover={{ scale: 1.08 }}
                   whileTap={{ scale: 0.95 }}
                   title="Open in new tab"
-                  href={shortUrl}
+                  href={`/${preferredUrl}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl
