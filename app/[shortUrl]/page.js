@@ -6,8 +6,8 @@ import { eq } from "drizzle-orm";
 export default async function Page({ params }) {
   const { shortUrl } = await params;
 
-  const host = process.env.NEXT_PUBLIC_HOST_URL;
-  const fullShort = `${host}/${shortUrl}`;
+  //const host = process.env.NEXT_PUBLIC_HOST_URL;
+  const fullShort = `/${shortUrl}`;
 
   const rows = await db.select().from(urls).where(eq(urls.shortUrl, fullShort));
 
