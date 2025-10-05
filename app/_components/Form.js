@@ -91,6 +91,8 @@ export default function ShortenForm() {
 
       setShortUrl(data.shortUrl);
       toast.success("Successfully generated URL ✅");
+      setUrl('');
+      setPreferredUrl('');
       
     } catch (err) {
       console.error(err);
