@@ -37,7 +37,7 @@ Easily shorten, copy, and share clean URLs using your own custom domain — [sku
 ## 📸 Preview
 
 ![Dashboard](https://drive.usercontent.google.com/download?id=1n9H4zqPP0q7M7qE9FNQ7HrqhcnjIrLvY&export=view&authuser=0)  
-*Enter the link your want to shorten and as you prefer*
+*Enter the link your want to shorten and as you prefer.*
 
 ---
 
